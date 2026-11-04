@@ -1,0 +1,22 @@
+# Dependencies and builds
+node_modules
+dist
+dist-ssr
+*.local
+
+# Secrets (never commit)
+.env
+.env.*
+!.env.example
+
+# Vercel
+.vercel
+
+# Logs and editor files
+logs
+*.log
+npm-debug.log*
+.DS_Store
+.vscode/*
+!.vscode/extensions.json
+.idea

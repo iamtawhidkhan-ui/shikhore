@@ -54,7 +54,7 @@ export default function LoginPage() {
         <div>
           <Brand tone="light" />
           <p className="mt-3 text-lg text-white/70" lang="bn">
-            শিখরে · শিখো রে
+            শিখরে উঠতে, শিখো রে!
           </p>
         </div>
         <div>

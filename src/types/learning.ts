@@ -40,4 +40,6 @@ export interface LearningPath {
   lessonIds: string[];
   challengeIds: string[];
   status: "available" | "coming-soon";
+  /** Lesson count shown on "Coming soon" previews, which have no lessons yet. */
+  previewLessonCount?: number;
 }

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import { AchievementToast } from "./AchievementToast";
 import { Header } from "./Header";
 import { MobileNavigation } from "./MobileNavigation";
@@ -7,6 +7,7 @@ import { Sidebar } from "./Sidebar";
 
 export function AppLayout() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const { pathname } = useLocation();
 
   useEffect(() => {
     if (!sidebarOpen) return;
@@ -16,6 +17,11 @@ export function AppLayout() {
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
   }, [sidebarOpen]);
+
+  // Every page change starts at the top, like a normal website.
+  useEffect(() => {
+    window.scrollTo({ top: 0 });
+  }, [pathname]);
 
   return (
     <div className="min-h-screen">

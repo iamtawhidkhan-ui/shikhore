@@ -3,11 +3,15 @@ import { cn } from "../../utils/cn";
 export function ProgressBar({
   value,
   label,
+  ariaLabel,
   showValue = false,
   className,
 }: {
   value: number;
+  /** Visible text above the bar. */
   label?: string;
+  /** Screen reader name when there is no visible label. */
+  ariaLabel?: string;
   showValue?: boolean;
   className?: string;
 }) {
@@ -25,7 +29,7 @@ export function ProgressBar({
         aria-valuenow={percent}
         aria-valuemin={0}
         aria-valuemax={100}
-        aria-label={label ?? "Progress"}
+        aria-label={ariaLabel ?? label ?? "Progress"}
         className="h-2 w-full overflow-hidden rounded-full bg-line"
       >
         <div

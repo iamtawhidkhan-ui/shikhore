@@ -22,6 +22,10 @@ export interface AssistantContext {
     | "hint"
     | "feedback"
     | "general";
+  /** Progress facts the app states explicitly, so Usha never has to guess. */
+  learnerState?: string;
+  /** The learner's latest submitted answer for the current challenge. */
+  learnerAnswer?: string;
 }
 
 export interface AssistantRequest {

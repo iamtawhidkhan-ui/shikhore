@@ -1,20 +1,28 @@
 import { Mountain } from "lucide-react";
 import { cn } from "../../utils/cn";
 
-export function Brand({ tone = "dark" }: { tone?: "dark" | "light" }) {
+export function Brand({
+  tone = "dark",
+  size = "md",
+}: {
+  tone?: "dark" | "light";
+  size?: "md" | "lg";
+}) {
   return (
-    <span className="inline-flex items-center gap-2">
+    <span className={cn("inline-flex items-center", size === "lg" ? "gap-3" : "gap-2")}>
       <span
         className={cn(
-          "flex size-9 items-center justify-center rounded-lg",
+          "flex items-center justify-center",
+          size === "lg" ? "size-11 rounded-xl" : "size-9 rounded-lg",
           tone === "dark" ? "bg-ink text-lime" : "bg-lime text-ink"
         )}
       >
-        <Mountain className="size-5" aria-hidden />
+        <Mountain className={size === "lg" ? "size-6" : "size-5"} aria-hidden />
       </span>
       <span
         className={cn(
-          "text-lg font-bold tracking-tight",
+          "font-bold tracking-tight",
+          size === "lg" ? "text-2xl" : "text-lg",
           tone === "light" && "text-white"
         )}
       >

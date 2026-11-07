@@ -82,10 +82,13 @@ export default function LoginPage() {
       </aside>
 
       {/* Same brand as the desktop panel, compact: phones and tablets */}
-      <header className="bg-ink px-5 py-5 text-white sm:px-8 lg:hidden">
-        <div className="mx-auto w-full max-w-md">
-          <Brand tone="light" />
-          <p className="mt-2 text-base text-white/70" lang="bn">
+      <header className="bg-ink px-5 py-6 text-white sm:px-8 lg:hidden">
+        <div className="mx-auto flex w-full max-w-md items-center justify-between gap-4">
+          <Brand tone="light" size="lg" />
+          <p
+            className="max-w-[50%] text-balance text-right text-lg font-medium leading-snug text-white/90"
+            lang="bn"
+          >
             শিখরে উঠতে, শিখো রে!
           </p>
         </div>

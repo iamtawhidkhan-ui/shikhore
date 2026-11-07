@@ -1,7 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef } from "react";
 import { useSearchParams } from "react-router-dom";
 import { AssistantPanel } from "../components/assistant/AssistantPanel";
-import { PageHeader } from "../components/common/PageHeader";
 import { AUTO_MESSAGES, type SuggestedPrompt } from "../data/assistantPrompts";
 import { useAssistant } from "../hooks/useAssistant";
 import { useProgress } from "../hooks/useProgress";
@@ -73,23 +72,17 @@ export default function AssistantPage() {
   }
 
   return (
-    <>
-      <PageHeader
-        title="Usha"
-        description="Your learning companion. Ask for an explanation, an example, a hint or feedback."
-      />
-      <AssistantPanel
-        messages={assistant.messages}
-        status={assistant.status}
-        error={assistant.error}
-        contextLabel={label}
-        hasChallenge={Boolean(context.challengeId)}
-        onSend={(text) => void handleSend(text)}
-        onPrompt={handlePrompt}
-        onRetry={() => void handleRetry()}
-        onClear={clear}
-        onClearContext={clearContext}
-      />
-    </>
+    <AssistantPanel
+      messages={assistant.messages}
+      status={assistant.status}
+      error={assistant.error}
+      contextLabel={label}
+      hasChallenge={Boolean(context.challengeId)}
+      onSend={(text) => void handleSend(text)}
+      onPrompt={handlePrompt}
+      onRetry={() => void handleRetry()}
+      onClear={clear}
+      onClearContext={clearContext}
+    />
   );
 }

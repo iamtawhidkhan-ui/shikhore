@@ -19,7 +19,7 @@ import { cn } from "../utils/cn";
 type LoginError = Extract<LoginResult, { ok: false }>;
 
 const inputClasses =
-  "w-full rounded-lg border bg-surface px-3.5 py-2.5 text-sm outline-none transition duration-200 focus:border-ink focus:ring-2 focus:ring-lime";
+  "w-full rounded-lg border bg-surface px-3.5 py-3 text-base outline-none transition duration-200 focus:border-ink focus:ring-2 focus:ring-lime sm:py-2.5 sm:text-sm";
 
 export default function LoginPage() {
   const { isAuthenticated, login } = useAuth();
@@ -48,7 +48,7 @@ export default function LoginPage() {
   const formError = error && !error.field ? error.error : undefined;
 
   return (
-    <div className="grid min-h-screen lg:grid-cols-2">
+    <div className="flex min-h-screen flex-col lg:grid lg:grid-cols-2">
       {/* Brand panel: desktop only */}
       <aside className="hidden flex-col justify-between bg-ink p-12 text-white lg:flex">
         <div>
@@ -81,29 +81,36 @@ export default function LoginPage() {
         </p>
       </aside>
 
-      <main className="flex items-center justify-center px-4 py-10 sm:px-8">
+      {/* Same brand as the desktop panel, compact: phones and tablets */}
+      <header className="bg-ink px-5 py-5 text-white sm:px-8 lg:hidden">
+        <div className="mx-auto w-full max-w-md">
+          <Brand tone="light" />
+          <p className="mt-2 text-base text-white/70" lang="bn">
+            শিখরে উঠতে, শিখো রে!
+          </p>
+        </div>
+      </header>
+
+      <main className="flex flex-1 items-start justify-center px-5 pb-[max(2rem,env(safe-area-inset-bottom))] pt-7 sm:px-8 sm:pt-10 lg:items-center lg:pb-10">
         <div className="w-full max-w-md">
-          <img
-            src="/images/logo.png"
-            alt="Shikhore: Learn with purpose. Rise through practice."
-            className="mx-auto mb-4 w-52 mix-blend-multiply lg:hidden"
-          />
-          <h1 className="text-3xl font-bold tracking-tight">
+          <h1 className="text-2xl font-bold tracking-tight sm:text-3xl">
             Your next skill starts here.
           </h1>
-          <p className="mt-2 text-muted">Learn with purpose. Rise through practice.</p>
+          <p className="mt-1.5 text-sm text-muted sm:text-base">
+            Learn with purpose. Rise through practice.
+          </p>
 
-          <div className="mt-6 rounded-card border border-lime-dark/40 bg-lime/20 p-4 text-sm">
+          <div className="mt-5 rounded-card border border-lime-dark/40 bg-lime/20 p-4 text-sm sm:mt-6">
             <p className="font-semibold">Demo credentials</p>
             <p className="mt-1 text-ink/70">
               This is a demo. Sign in with the account below.
             </p>
-            <dl className="mt-2 space-y-0.5 font-mono text-[13px]">
-              <div className="flex gap-2">
+            <dl className="mt-2 space-y-1 font-mono text-[13px]">
+              <div className="flex flex-wrap gap-x-2">
                 <dt className="text-ink/60">Email:</dt>
                 <dd>{DEMO_USER.email}</dd>
               </div>
-              <div className="flex gap-2">
+              <div className="flex flex-wrap gap-x-2">
                 <dt className="text-ink/60">Password:</dt>
                 <dd>{DEMO_PASSWORD}</dd>
               </div>
@@ -111,14 +118,14 @@ export default function LoginPage() {
             <Button
               variant="secondary"
               size="sm"
-              className="mt-3"
+              className="mt-3 w-full sm:w-auto"
               onClick={fillDemoCredentials}
             >
               Fill demo credentials
             </Button>
           </div>
 
-          <form onSubmit={handleSubmit} noValidate className="mt-6 space-y-4">
+          <form onSubmit={handleSubmit} noValidate className="mt-5 space-y-4 sm:mt-6">
             {formError && (
               <div
                 role="alert"
@@ -174,7 +181,7 @@ export default function LoginPage() {
                   type="button"
                   onClick={() => setShowPassword((value) => !value)}
                   aria-label={showPassword ? "Hide password" : "Show password"}
-                  className="absolute right-2 top-1/2 -translate-y-1/2 rounded p-1.5 text-muted hover:text-ink"
+                  className="absolute right-1.5 top-1/2 -translate-y-1/2 rounded p-2.5 text-muted hover:text-ink sm:right-2 sm:p-1.5"
                 >
                   {showPassword ? (
                     <EyeOff className="size-4" aria-hidden />
@@ -196,7 +203,7 @@ export default function LoginPage() {
             </Button>
           </form>
 
-          <p className="mt-6 text-center text-xs text-muted">
+          <p className="mt-5 text-center text-xs leading-5 text-muted sm:mt-6">
             This is a demo sign-in. Registration and password recovery are
             intentionally left out of this version.
           </p>

@@ -7,8 +7,6 @@ export interface AuthContextValue {
   isAuthenticated: boolean;
   /** Validates the demo credentials. Never throws. */
   login: (email: string, password: string) => LoginResult;
-  /** Signs in as the demo learner without typing credentials. */
-  loginAsDemo: () => void;
   /** Clears the session only. Learning progress is kept. */
   logout: () => void;
 }

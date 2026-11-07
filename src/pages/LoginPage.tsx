@@ -22,7 +22,7 @@ const inputClasses =
   "w-full rounded-lg border bg-surface px-3.5 py-2.5 text-sm outline-none transition duration-200 focus:border-ink focus:ring-2 focus:ring-lime";
 
 export default function LoginPage() {
-  const { isAuthenticated, login, loginAsDemo } = useAuth();
+  const { isAuthenticated, login } = useAuth();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
@@ -194,15 +194,12 @@ export default function LoginPage() {
               Continue to Shikhore
               <ArrowRight className="size-4" aria-hidden />
             </Button>
-            <Button
-              variant="ghost"
-              size="md"
-              className="w-full"
-              onClick={loginAsDemo}
-            >
-              Explore demo
-            </Button>
           </form>
+
+          <p className="mt-6 text-center text-xs text-muted">
+            This is a demo sign-in. Registration and password recovery are
+            intentionally left out of this version.
+          </p>
         </div>
       </main>
     </div>

@@ -32,13 +32,25 @@ A learner can sign in, choose a path, study a lesson, answer a knowledge check, 
 
 ## Screenshots
 
-| Dashboard | Lesson |
-| --- | --- |
-| ![Dashboard](docs/screenshots/dashboard.png) | ![Lesson](docs/screenshots/lesson.png) |
+**Sign in.** A demo login with the credentials shown on the page, inline validation and friendly errors.
 
-| Challenge | Usha |
-| --- | --- |
-| ![Challenge](docs/screenshots/challenge.png) | ![Usha](docs/screenshots/usha.png) |
+![Login](docs/screenshots/login.png)
+
+**Dashboard.** Every number is derived from saved learner state: a continue-learning card, a recommended next step, an overview, weekly activity and milestones.
+
+![Dashboard](docs/screenshots/dashboard.png)
+
+**Explore.** Working search plus difficulty and category filters. One path is fully built; the rest are previews marked *Coming soon*.
+
+![Explore](docs/screenshots/explore.png)
+
+**Lesson.** Curriculum navigation, the lesson content, and lesson objectives with a direct line to Usha.
+
+![Lesson](docs/screenshots/lesson.png)
+
+**Usha.** The AI learning companion, answering with the learner's context in a full-height chat.
+
+![Usha](docs/screenshots/usha.png)
 
 ## Main features
 
